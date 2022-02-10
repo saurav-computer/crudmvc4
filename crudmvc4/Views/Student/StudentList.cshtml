@@ -1,0 +1,36 @@
+﻿@model List<crudmvc4.Context.Tbl_student>
+@{
+    ViewBag.Title = "StudentList";
+}
+
+ <table>
+     <tr>
+         <th>Name</th>
+         <th>Fname</th>
+         <th>Email</th>
+         <th>Mobile</th>
+         <th>Addresh</th>
+         <th>Action</th>
+     </tr>
+
+  
+         @foreach(var item in Model)
+            {
+             <tr>
+                 <td>@item.Name</td>
+                 <td>@item.Fname</td>
+                 <td>@item.Email</td>
+                 <td>@item.Mobile</td>
+                 <td>@item.Address</td>
+                 <td>
+                     <a herf="@Url.Action("Student", new {item.Id,item.Name,item.Fname,item.Email,item.Mobile, item.Address })"class=" btn bit-success">Edit</a>
+                     <a herf="@Url.Action("Delete", new {item.Id})" class="bit bit-danger">Delete</a>
+                 </td>
+             </tr>
+            }
+
+
+
+
+ </table>
+
